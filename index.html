@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
+  <!-- Replace the content tag with appropriate information -->
+  <meta name="description" content="DESCRIPTION META TAG">
+  <meta property="og:title" content="SOCIAL MEDIA TITLE TAG"/>
+  <meta property="og:description" content="SOCIAL MEDIA DESCRIPTION TAG TAG"/>
+  <meta property="og:url" content="URL OF THE WEBSITE"/>
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
+  <meta property="og:image" content="static/image/your_banner_image.png" />
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
+
+
+  <meta name="twitter:title" content="TWITTER BANNER TITLE META TAG">
+  <meta name="twitter:description" content="TWITTER BANNER DESCRIPTION META TAG">
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
+  <meta name="twitter:image" content="static/images/your_twitter_banner_image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <!-- Keywords for your paper to be indexed by-->
+  <meta name="keywords" content="KEYWORDS SHOULD BE PLACED HERE">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <title>K-DIALECT : KOREAN DIALECT-AWARE FACE-BASED SPEECH SYNTHESIS</title>
+  <link rel="icon" type="image/x-icon" href="static/images/favicon.io">
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+  rel="stylesheet">
+
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script src="static/js/bulma-carousel.min.js"></script>
+  <script src="static/js/bulma-slider.min.js"></script>
+  <script src="static/js/index.js"></script>
+</head>
+
+  
+<body>
+<div class = "class="container pt-5 mt-5 shadow p-5 mb-5 bg-white rounded">
+	<div class = "text-center">
+		<h1> K-DIALECT :</h1>
+		<h2> KOREAN DIALECT-AWARE FACE-BASED SPEECH SYNTHESIS</h2>
+	
+	
+	<div class="is-size-5 publication-authors">
+		<span class="author-block">
+			<a href="https://sites.google.com/view/seongyeonyang" target="_blank">Seongyeon Yang</a>,
+		</span>
+		<span class="author-block">
+			<a href="https://sites.google.com/view/jjuyeah" target="_blank">Juyeob Lee</a><sup>*</sup>,
+		</span>
+		<span class="author-block">
+			<a href="https://sites.google.com/view/eunil" target="_blank">Eunil Park</a><sup>*</sup>,
+		</span>
+	</div>
+	
+	<div class="is-size-5 publication-authors">
+		<span class="author-block">Sungkyunkwan University<br>ICASSP 2026</span>
+	</div>
+
+	<div class="publication-links">
+		<!-- Arxiv PDF link -->
+	      	<!-- <span class="link-block">
+			<a href=" " target="_blank" class="external-link button is-normal is-rounded is-dark">
+                        <span class="icon">
+				<i class="fas fa-file-pdf"></i>
+                        </span>
+                        <span>Paper</span>
+                      	</a>
+	    	</span>-->
+
+	    	<!-- Github link -->
+	    	<span class="link-block">
+			<a href="https://github.com/seongyeon01/K-DIALECT" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                      	<span class="icon">
+				<i class="fab fa-github"></i>
+                      	</span>
+                      	<span>Code</span>
+                    	</a>
+	  	</span>
+
+		<!-- PPT link -->
+	    	<!-- <span class="link-block">
+			<a href="https://drive.google.com/drive/folders/15tk5QnRYZo9oJA1GmsWyWj3Xb-t7de3S?usp=sharing" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                      	<span class="icon">
+				<i class="fab fa-github"></i>
+                      	</span>
+                      	<span>Presentation</span>
+                    	</a>
+	  	</span>-->
+	</div>
+	</div>
+<div class="container pt-5 mt-5 shadow p-5 mb-5 bg-white rounded">	
+	<!--  Abstract    -->
+	
+	<!--<video width="1200" height="700" controls poster="poster.jpg">
+	  <source src="static/video/Demo_caption.mp4" type="video/mp4">
+	  현재 사용 중인 브라우저는 비디오 태그를 지원하지 않습니다.
+	</video>-->
+	<p style="text-align: center;">
+	<img src="static/images/overview.jpg" width="600">
+	</p>
+	
+	<p> 
+	<b>Abstract.</b>
+	Face-based speech synthesis emerged as a promising alternative in settings where clean reference audio data are scarce or noisy. However, existing studies hardly addressed the challenge of modeling dialectal prosody, which is essential for preserving linguistic diversity and naturalness. To address this issue, we propose K-DIALECT, a multimodal text-to-speech(TTS) framework that generates speech from only a face image and dialect identifier. The model incorporates a face encoder to disentangle the speaker identity and style, a dialect-conditioned pitch predictor to explicitly model prosody, and a FiLM-based fusion module to integrate the pitch and style into a unified representation. Experiments on six Korean dialects show that our method achieves higher dialectal fluency and naturalness than a strong voice-based baseline while maintaining competitive speaker similarity. K-DIALECT achieved a SECS of 0.70 and a WER of 0.25, confirming that it preserves both similarity and intelligibility. Subjective evaluations further reveal that the improvements are especially pronounced for dialects with distinctive pitch variations, and listeners consistently preferred our outputs. This work represents the first attempt to extend face-based TTS to low-resource dialectal synthesis, providing a foundation for future research on multilingual and extremely low-resource speech synthesis.	
+	</p>
+	
+</div>
+
+<!--
+<div class="hero-body">
+	<div class="container">
+		<h2 class="title is-3" style="text-align: center;">Synthetic voice is synthesized with face images</h2>
+		<div class="container pt-5 mt-5 shadow p-5 mb-5 bg-white rounded">
+			<table class="table table-hover pt-2" style="width: 100%;">
+				<thead>
+					<tr>
+						<th style="text-align: center; width: 150px;">Image</th>
+						<th style="text-align: center; width: 350px;">Text (Korean)</th>
+						<th style="text-align: center; width: 350px;">Text (English)</th>
+						<th style="text-align: center; width: 180px;">XTTS</th>
+						<th style="text-align: center; width: 180px;">K-Dialect (ours)</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td style="text-align: center; vertical-align: middle;">
+							<img src="static/image_audio/1/image.jpg" alt="Face Image" style="width: 150px; height: auto;">
+						</td>
+						<td style="text-align: left; vertical-align: middle;">
+							이번 휴가가 짧아서 1박 2일로 가까운 일본으로 여행가려고.
+						</td>
+						<td style="text-align: left; vertical-align: middle;">
+							Since my vacation is short, I'm planning a quick trip to nearby Japan for one night and two days.
+						</td>
+						<td style="text-align: center; vertical-align: middle;">
+							<audio controls="controls" style="width: 150px;">
+								<source src="static/image_audio/1/A.wav" type="audio/wav">
+								Your browser does not support the audio element.
+							</audio>
+						</td>
+						<td style="text-align: center; vertical-align: middle;">
+							<audio controls="controls" style="width: 150px;">
+								<source src="static/image_audio/1/B.wav" type="audio/wav">
+								Your browser does not support the audio element.
+							</audio>
+						</td>
+					</tr>
+					<tr style="background-color: #f8f8f8;">
+						<td colspan="5" style="text-align: left; padding: 10px 20px;">
+							<p style="margin: 0; font-size: 0.9em; color: #6c757d;">
+								<b>Romanize:</b> Ibeon hyugaga jjalbaseo ilbak iillo gakkaun ilboneuro yeohaenggallyeogo.
+							</p>
+						</td>
+					</tr>
+					<tr style="height: 30px;"><td colspan="5" style="padding: 0;"></td></tr>
+					
+					<tr>
+						<td style="text-align: center; vertical-align: middle;">
+							<img src="static/image_audio/2/image.jpg" alt="Face Image" style="width: 150px; height: auto;">
+						</td>
+						<td style="text-align: left; vertical-align: middle;">
+							스토킹을 당하고 있다고 신고해도 직접적인 피해를 보지 않았으면 처벌할 수 없대.
+						</td>
+						<td style="text-align: left; vertical-align: middle;">
+							Even if you report being stalked, they say you can't be punished unless there's direct harm.
+						</td>
+						<td style="text-align: center; vertical-align: middle;">
+							<audio controls="controls" style="width: 150px;">
+								<source src="static/image_audio/2/A.wav" type="audio/wav">
+								Your browser does not support the audio element.
+							</audio>
+						</td>
+						<td style="text-align: center; vertical-align: middle;">
+							<audio controls="controls" style="width: 150px;">
+								<source src="static/image_audio/2/B.wav" type="audio/wav">
+								Your browser does not support the audio element.
+							</audio>
+						</td>
+					</tr>
+					<tr style="background-color: #f8f8f8;">
+						<td colspan="5" style="text-align: left; padding: 10px 20px;">
+							<p style="margin: 0; font-size: 0.9em; color: #6c757d;">
+								<b>Romanize:</b> Seutoking-eul danghago ittago singohaedo jikjeopjeogin pihye-reul boji anasseumyeon cheobeolhal su eopdae.
+							</p>
+						</td>
+					</tr>
+					<tr style="height: 30px;"><td colspan="5" style="padding: 0;"></td></tr>
+					
+					<tr>
+						<td style="text-align: center; vertical-align: middle;">
+							<img src="static/image_audio/3/image.jpg" alt="Face Image" style="width: 150px; height: auto;">
+						</td>
+						<td style="text-align: left; vertical-align: middle;">
+							내가 존경하는 가수님의 창법을 따라하면서 노래를 불러봤는데 아직 많이 부족해
+						</td>
+						<td style="text-align: left; vertical-align: middle;">
+							I tried singing by imitating the vocal style of the singer I respect, but I still have a long way to go.
+						</td>
+						<td style="text-align: center; vertical-align: middle;">
+							<audio controls="controls" style="width: 150px;">
+								<source src="static/image_audio/3/A.wav" type="audio/wav">
+								Your browser does not support the audio element.
+							</audio>
+						</td>
+						<td style="text-align: center; vertical-align: middle;">
+							<audio controls="controls" style="width: 150px;">
+								<source src="static/image_audio/3/B.wav" type="audio/wav">
+								Your browser does not support the audio element.
+							</audio>
+						</td>
+					</tr>
+					<tr style="background-color: #f8f8f8;">
+						<td colspan="5" style="text-align: left; padding: 10px 20px;">
+							<p style="margin: 0; font-size: 0.9em; color: #6c757d;">
+								<b>Romanize:</b> Naega jon-gyeonghaneun gasunim-ui changbeop-eul ttarahamyeonseo noraereul bulleobwatneunde ajik mani bujokhae.
+							</p>
+						</td>
+					</tr>
+					<tr style="height: 30px;"><td colspan="5" style="padding: 0;"></td></tr>
+
+					<tr>
+						<td style="text-align: center; vertical-align: middle;">
+							<img src="static/image_audio/4/image.jpg" alt="Face Image" style="width: 150px; height: auto;">
+						</td>
+						<td style="text-align: left; vertical-align: middle;">
+							기니피그가 사료를 자꾸 안먹으려고 합니다.
+						</td>
+						<td style="text-align: left; vertical-align: middle;">
+							The guinea pig keeps refusing to eat its food.
+						</td>
+						<td style="text-align: center; vertical-align: middle;">
+							<audio controls="controls" style="width: 150px;">
+								<source src="static/image_audio/4/A.wav" type="audio/wav">
+								Your browser does not support the audio element.
+							</audio>
+						</td>
+						<td style="text-align: center; vertical-align: middle;">
+							<audio controls="controls" style="width: 150px;">
+								<source src="static/image_audio/4/B.wav" type="audio/wav">
+								Your browser does not support the audio element.
+							</audio>
+						</td>
+					</tr>
+					<tr style="background-color: #f8f8f8;">
+						<td colspan="5" style="text-align: left; padding: 10px 20px;">
+							<p style="margin: 0; font-size: 0.9em; color: #6c757d;">
+								<b>Romanize:</b> Ginipigeu-ga saryoreul jakku anmeogeuryeogo hamnida.
+							</p>
+						</td>
+					</tr>
+					<tr style="height: 30px;"><td colspan="5" style="padding: 0;"></td></tr>
+					
+					<tr>
+						<td style="text-align: center; vertical-align: middle;">
+							<img src="static/image_audio/5/image.jpg" alt="Face Image" style="width: 150px; height: auto;">
+						</td>
+						<td style="text-align: left; vertical-align: middle;">
+							제사상 앞 제사상 앞 향 곁에 무릎을 꿇고 앉아 동생이 들고 있는 제기에 술을 따랐어.
+						</td>
+						<td style="text-align: left; vertical-align: middle;">
+							I knelt in front of the ancestral table, next to the incense, and poured wine into the bowl my younger sibling was holding.
+						</td>
+						<td style="text-align: center; vertical-align: middle;">
+							<audio controls="controls" style="width: 150px;">
+								<source src="static/image_audio/5/A.wav" type="audio/wav">
+								Your browser does not support the audio element.
+							</audio>
+						</td>
+						<td style="text-align: center; vertical-align: middle;">
+							<audio controls="controls" style="width: 150px;">
+								<source src="static/image_audio/5/B.wav" type="audio/wav">
+								Your browser does not support the audio element.
+							</audio>
+						</td>
+					</tr>
+					<tr style="background-color: #f8f8f8;">
+						<td colspan="5" style="text-align: left; padding: 10px 20px;">
+							<p style="margin: 0; font-size: 0.9em; color: #6c757d;">
+								<b>Romanize:</b> Jesasang ap jesasang ap hyang gyeote mureupeul kkulgo anja dongsaeng-i deulgo inneun jegie sur-eul ttarasseo.
+							</p>
+						</td>
+					</tr>
+					<tr style="height: 30px;"><td colspan="5" style="padding: 0;"></td></tr>
+
+					<tr>
+						<td style="text-align: center; vertical-align: middle;">
+							<img src="static/image_audio/6/image.jpg" alt="Face Image" style="width: 150px; height: auto;">
+						</td>
+						<td style="text-align: left; vertical-align: middle;">
+							이번 시험 진짜 망한거 같아. 나 대학은 갈 수 있을까?
+						</td>
+						<td style="text-align: left; vertical-align: middle;">
+							I think I really messed up this exam. Will I be able to go to college?
+						</td>
+						<td style="text-align: center; vertical-align: middle;">
+							<audio controls="controls" style="width: 150px;">
+								<source src="static/image_audio/6/A.wav" type="audio/wav">
+								Your browser does not support the audio element.
+							</audio>
+						</td>
+						<td style="text-align: center; vertical-align: middle;">
+							<audio controls="controls" style="width: 150px;">
+								<source src="static/image_audio/6/B.wav" type="audio/wav">
+								Your browser does not support the audio element.
+							</audio>
+						</td>
+					</tr>
+					<tr style="background-color: #f8f8f8;">
+						<td colspan="5" style="text-align: left; padding: 10px 20px;">
+							<p style="margin: 0; font-size: 0.9em; color: #6c757d;">
+								<b>Romanize:</b> Ibeon siheom jinjja manghan-geo gata. Na daehageun gal su isseulkka?
+							</p>
+						</td>
+					</tr>
+					<tr style="height: 30px;"><td colspan="5" style="padding: 0;"></td></tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>-->
+
+	
+<div class="hero-body">
+	<div class="container">
+		<h2 class="title is-3" style="text-align: center;">Korean Dialect Speech Comparison</h2>
+		<div class="container pt-5 mt-5 shadow p-5 mb-5 bg-white rounded">
+			<table class="table table-hover pt-2" style="width: 100%;">
+				<tbody>
+					<tr style="background-color: #e9ecef;">
+						<td colspan="6" style="text-align: center; padding: 15px;"><b>Seoul</b></td>
+					</tr>
+					<tr>
+						<th style="text-align: center; width: 150px;">Image</th>
+						<th style="text-align: center; width: 350px;">Text (Korean)</th>
+						<th style="text-align: center; width: 350px;">Text (English)</th>
+						<th style="text-align: center; width: 180px;">XTTS</th>
+						<th style="text-align: center; width: 180px;">Ours (w/o PP)</th>
+						<th style="text-align: center; width: 180px;">Ours</th>
+					</tr>
+					<tr>
+						<td style="text-align: center; vertical-align: middle;">
+							<img src="static/dialect/seoul/image.jpg" alt="Seoul Dialect Image" style="width: 150px; height: auto;">
+						</td>
+						<td style="text-align: left; vertical-align: middle;">
+							몇달전 지인 결혼식에서 축가를 담당했었는데 신랑이 입장했을 때보다 박수를 많이 받은 것 같아 살짝 미안했습니다.
+						</td>
+						<td style="text-align: left; vertical-align: middle;">
+							A few months ago, I was in charge of the celebratory song at a friend's wedding, and I felt a little sorry because I seemed to receive more applause than the groom did when he entered.
+						</td>
+						<td style="text-align: center; vertical-align: middle;">
+							<audio controls="controls" style="width: 150px;">
+								<source src="static/dialect/seoul/A.wav" type="audio/wav">
+								Your browser does not support the audio element.
+							</audio>
+						</td>
+						<td style="text-align: center; vertical-align: middle;">
+							<audio controls="controls" style="width: 150px;">
+								<source src="static/dialect/seoul/B.wav" type="audio/wav">
+								Your browser does not support the audio element.
+							</audio>
+						</td>
+						<td style="text-align: center; vertical-align: middle;">
+							<audio controls="controls" style="width: 150px;">
+								<source src="static/dialect/seoul/C.wav" type="audio/wav">
+								Your browser does not support the audio element.
+							</audio>
+						</td>
+					</tr>
+					<tr style="background-color: #f8f8f8;">
+						<td colspan="6" style="text-align: left; padding: 10px 20px;">
+							<p style="margin: 0; font-size: 0.9em; color: #6c757d;">
+								<b>Romanize:</b> Myeotdaljeon jiin gyeollonsigeseo chukgareul damdanghaesseonneunde sillang-i ipjanghaesseul ttaeboda baksureul mani badeun geot gata saljjak mianhaesseumnida.
+							</p>
+						</td>
+					</tr>
+					<tr style="height: 30px;"><td colspan="6" style="padding: 0;"></td></tr>
+					
+					<tr style="background-color: #e9ecef;">
+						<td colspan="6" style="text-align: center; padding: 15px;"><b>Gangwon</b></td>
+					</tr>
+					<tr>
+						<th style="text-align: center; width: 150px;">Image</th>
+						<th style="text-align: center; width: 350px;">Text (Korean)</th>
+						<th style="text-align: center; width: 350px;">Text (English)</th>
+						<th style="text-align: center; width: 180px;">XTTS</th>
+						<th style="text-align: center; width: 180px;">Ours (w/o PP)</th>
+						<th style="text-align: center; width: 180px;">Ours</th>
+					</tr>
+					<tr>
+						<td style="text-align: center; vertical-align: middle;">
+							<img src="static/dialect/gangwon/image.jpg" alt="Gangwon Dialect Image" style="width: 150px; height: auto;">
+						</td>
+						<td style="text-align: left; vertical-align: middle;">
+							남들은 시간이 왜 이렇게 느리게 가냐 이렇게 말을 하는 사람들도 많은데
+						</td>
+						<td style="text-align: left; vertical-align: middle;">
+							There are many people who say, 'Why does time go so slowly?'
+						</td>
+						<td style="text-align: center; vertical-align: middle;">
+							<audio controls="controls" style="width: 150px;">
+								<source src="static/dialect/gangwon/A.wav" type="audio/wav">
+								Your browser does not support the audio element.
+							</audio>
+						</td>
+						<td style="text-align: center; vertical-align: middle;">
+							<audio controls="controls" style="width: 150px;">
+								<source src="static/dialect/gangwon/B.wav" type="audio/wav">
+								Your browser does not support the audio element.
+							</audio>
+						</td>
+						<td style="text-align: center; vertical-align: middle;">
+							<audio controls="controls" style="width: 150px;">
+								<source src="static/dialect/gangwon/C.wav" type="audio/wav">
+								Your browser does not support the audio element.
+							</audio>
+						</td>
+					</tr>
+					<tr style="background-color: #f8f8f8;">
+						<td colspan="6" style="text-align: left; padding: 10px 20px;">
+							<p style="margin: 0; font-size: 0.9em; color: #6c757d;">
+								<b>Romanize:</b> Namdeureun sigani wae ireoke neurige ganya ireoke mareul haneun saramdeuldo maneunde
+							</p>
+						</td>
+					</tr>
+					<tr style="height: 30px;"><td colspan="6" style="padding: 0;"></td></tr>
+					
+					<tr style="background-color: #e9ecef;">
+						<td colspan="6" style="text-align: center; padding: 15px;"><b>Gyeongsang</b></td>
+					</tr>
+					<tr>
+						<th style="text-align: center; width: 150px;">Image</th>
+						<th style="text-align: center; width: 350px;">Text (Korean)</th>
+						<th style="text-align: center; width: 350px;">Text (English)</th>
+						<th style="text-align: center; width: 180px;">XTTS</th>
+						<th style="text-align: center; width: 180px;">Ours (w/o PP)</th>
+						<th style="text-align: center; width: 180px;">Ours</th>
+					</tr>
+					<tr>
+						<td style="text-align: center; vertical-align: middle;">
+							<img src="static/dialect/gyeongsang/image.jpg" alt="Gyeongsang Dialect Image" style="width: 150px; height: auto;">
+						</td>
+						<td style="text-align: left; vertical-align: middle;">
+							괜찮게 했던 아르바이트가 카페 알바였던 것 같습니다
+						</td>
+						<td style="text-align: left; vertical-align: middle;">
+							I think the part-time job I was decent at was working at a cafe.
+						</td>
+						<td style="text-align: center; vertical-align: middle;">
+							<audio controls="controls" style="width: 150px;">
+								<source src="static/dialect/gyeongsang/A.wav" type="audio/wav">
+								Your browser does not support the audio element.
+							</audio>
+						</td>
+						<td style="text-align: center; vertical-align: middle;">
+							<audio controls="controls" style="width: 150px;">
+								<source src="static/dialect/gyeongsang/B.wav" type="audio/wav">
+								Your browser does not support the audio element.
+							</audio>
+						</td>
+						<td style="text-align: center; vertical-align: middle;">
+							<audio controls="controls" style="width: 150px;">
+								<source src="static/dialect/gyeongsang/C.wav" type="audio/wav">
+								Your browser does not support the audio element.
+							</audio>
+						</td>
+					</tr>
+					<tr style="background-color: #f8f8f8;">
+						<td colspan="6" style="text-align: left; padding: 10px 20px;">
+							<p style="margin: 0; font-size: 0.9em; color: #6c757d;">
+								<b>Romanize:</b> Gwaenchanke haetdeon areubaiteuga kape albayeotdeon geot gatseumnida
+							</p>
+						</td>
+					</tr>
+					<tr style="height: 30px;"><td colspan="6" style="padding: 0;"></td></tr>
+
+					<tr style="background-color: #e9ecef;">
+						<td colspan="6" style="text-align: center; padding: 15px;"><b>Jeolla</b></td>
+					</tr>
+					<tr>
+						<th style="text-align: center; width: 150px;">Image</th>
+						<th style="text-align: center; width: 350px;">Text (Korean)</th>
+						<th style="text-align: center; width: 350px;">Text (English)</th>
+						<th style="text-align: center; width: 180px;">XTTS</th>
+						<th style="text-align: center; width: 180px;">Ours (w/o PP)</th>
+						<th style="text-align: center; width: 180px;">Ours</th>
+					</tr>
+					<tr>
+						<td style="text-align: center; vertical-align: middle;">
+							<img src="static/dialect/jeolla/image.jpg" alt="Jeolla Dialect Image" style="width: 150px; height: auto;">
+						</td>
+						<td style="text-align: left; vertical-align: middle;">
+							그게 뭐야 그럼 그 인스타 팔로우를 받으면연애를 할 수 있잖아
+						</td>
+						<td style="text-align: left; vertical-align: middle;">
+							What's that? Then if you get that Instagram follow, you can get into a relationship, can't you?
+						</td>
+						<td style="text-align: center; vertical-align: middle;">
+							<audio controls="controls" style="width: 150px;">
+								<source src="static/dialect/jeolla/A.wav" type="audio/wav">
+								Your browser does not support the audio element.
+							</audio>
+						</td>
+						<td style="text-align: center; vertical-align: middle;">
+							<audio controls="controls" style="width: 150px;">
+								<source src="static/dialect/jeolla/B.wav" type="audio/wav">
+								Your browser does not support the audio element.
+							</audio>
+						</td>
+						<td style="text-align: center; vertical-align: middle;">
+							<audio controls="controls" style="width: 150px;">
+								<source src="static/dialect/jeolla/C.wav" type="audio/wav">
+								Your browser does not support the audio element.
+							</audio>
+						</td>
+					</tr>
+					<tr style="background-color: #f8f8f8;">
+						<td colspan="6" style="text-align: left; padding: 10px 20px;">
+							<p style="margin: 0; font-size: 0.9em; color: #6c757d;">
+								<b>Romanize:</b> Geuge mwoya geureom geu instapeolloreul badeumyeon yeonaereul hal su itjana
+							</p>
+						</td>
+					</tr>
+					<tr style="height: 30px;"><td colspan="6" style="padding: 0;"></td></tr>
+					
+					<tr style="background-color: #e9ecef;">
+						<td colspan="6" style="text-align: center; padding: 15px;"><b>Jeju</b></td>
+					</tr>
+					<tr>
+						<th style="text-align: center; width: 150px;">Image</th>
+						<th style="text-align: center; width: 350px;">Text (Korean)</th>
+						<th style="text-align: center; width: 350px;">Text (English)</th>
+						<th style="text-align: center; width: 180px;">XTTS</th>
+						<th style="text-align: center; width: 180px;">Ours (w/o PP)</th>
+						<th style="text-align: center; width: 180px;">Ours</th>
+					</tr>
+					<tr>
+						<td style="text-align: center; vertical-align: middle;">
+							<img src="static/dialect/jeju/image.jpg" alt="Jeju Dialect Image" style="width: 150px; height: auto;">
+						</td>
+						<td style="text-align: left; vertical-align: middle;">
+							졸업식 같지도 않은 졸업식 해 가지고 잘도 서운허켜 아이들
+						</td>
+						<td style="text-align: left; vertical-align: middle;">
+							I was so sad, kids, because we had a graduation ceremony that wasn't even like a graduation ceremony.
+						</td>
+						<td style="text-align: center; vertical-align: middle;">
+							<audio controls="controls" style="width: 150px;">
+								<source src="static/dialect/jeju/A.wav" type="audio/wav">
+								Your browser does not support the audio element.
+							</audio>
+						</td>
+						<td style="text-align: center; vertical-align: middle;">
+							<audio controls="controls" style="width: 150px;">
+								<source src="static/dialect/jeju/B.wav" type="audio/wav">
+								Your browser does not support the audio element.
+							</audio>
+						</td>
+						<td style="text-align: center; vertical-align: middle;">
+							<audio controls="controls" style="width: 150px;">
+								<source src="static/dialect/jeju/C.wav" type="audio/wav">
+								Your browser does not support the audio element.
+							</audio>
+						</td>
+					</tr>
+					<tr style="background-color: #f8f8f8;">
+						<td colspan="6" style="text-align: left; padding: 10px 20px;">
+							<p style="margin: 0; font-size: 0.9em; color: #6c757d;">
+								<b>Romanize:</b> Joreopsik gatjido anheun joreopsik hae gajigo jaldo seounheokyeo aideul
+							</p>
+						</td>
+					</tr>
+					<tr style="height: 30px;"><td colspan="6" style="padding: 0;"></td></tr>
+
+					<tr style="background-color: #e9ecef;">
+						<td colspan="6" style="text-align: center; padding: 15px;"><b>Chungcheong</b></td>
+					</tr>
+					<tr>
+						<th style="text-align: center; width: 150px;">Image</th>
+						<th style="text-align: center; width: 350px;">Text (Korean)</th>
+						<th style="text-align: center; width: 350px;">Text (English)</th>
+						<th style="text-align: center; width: 180px;">XTTS</th>
+						<th style="text-align: center; width: 180px;">Ours (w/o PP)</th>
+						<th style="text-align: center; width: 180px;">Ours</th>
+					</tr>
+					<tr>
+						<td style="text-align: center; vertical-align: middle;">
+							<img src="static/dialect/chungcheong/image.jpg" alt="Chungcheong Dialect Image" style="width: 150px; height: auto;">
+						</td>
+						<td style="text-align: left; vertical-align: middle;">
+							전지현이랑 이민호랑 나온 푸른 바다의 전설이라는 드라마가 있는데
+						</td>
+						<td style="text-align: left; vertical-align: middle;">
+							There's a drama called 'Legend of the Blue Sea' that starred Jun Ji-hyun and Lee Min-ho.
+						</td>
+						<td style="text-align: center; vertical-align: middle;">
+							<audio controls="controls" style="width: 150px;">
+								<source src="static/dialect/chungcheong/A.wav" type="audio/wav">
+								Your browser does not support the audio element.
+							</audio>
+						</td>
+						<td style="text-align: center; vertical-align: middle;">
+							<audio controls="controls" style="width: 150px;">
+								<source src="static/dialect/chungcheong/B.wav" type="audio/wav">
+								Your browser does not support the audio element.
+							</audio>
+						</td>
+						<td style="text-align: center; vertical-align: middle;">
+							<audio controls="controls" style="width: 150px;">
+								<source src="static/dialect/chungcheong/C.wav" type="audio/wav">
+								Your browser does not support the audio element.
+							</audio>
+						</td>
+					</tr>
+					<tr style="background-color: #f8f8f8;">
+						<td colspan="6" style="text-align: left; padding: 10px 20px;">
+							<p style="margin: 0; font-size: 0.9em; color: #6c757d;">
+								<b>Romanize:</b> Jeonjihyeonieang iminho-rang naon pureun bada-ui jeonseoriraneun deuramaga itneunde
+							</p>
+						</td>
+					</tr>
+					<tr style="height: 30px;"><td colspan="6" style="padding: 0;"></td></tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+
+  
+<!--BibTex citation -->
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">BibTeX</h2>
+      <pre><code>BibTex Code Here</code></pre>
+    </div>
+</section>
+<!--End BibTex citation -->
+
+
+  <footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+
+          <p>
+            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
+            You are free to borrow the of this website, we just ask that you link back to this page in the footer. <br> This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Statcounter tracking code -->
+  
+<!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
+
+    <!-- End of Statcounter Code -->
+
+  </body>
+  </html>
+
+
